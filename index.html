@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex to Automata Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Regex → ε-NFA (Thompson) Visualizer</h1>
+      <p class="subtitle">
+        Enter a regular expression using operators <code>|</code>, <code>*</code>,
+        parentheses, and implicit concatenation (e.g. <code>(a|b)*abb</code>).
+      </p>
+
+      <section class="panel controls">
+        <label for="regexInput">Regular Expression</label>
+        <input id="regexInput" value="(a|b)*abb" />
+
+        <div class="button-row">
+          <button id="buildBtn">Build ε-NFA</button>
+          <button id="dfaBtn">Convert to DFA</button>
+        </div>
+
+        <div class="simulate-row">
+          <label for="testString">Test String</label>
+          <input id="testString" placeholder="e.g. abb" />
+          <button id="simulateBtn">Simulate</button>
+        </div>
+
+        <p id="message" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Automaton</h2>
+        <svg id="automatonSvg" viewBox="0 0 1000 600" aria-label="Automaton graph"></svg>
+      </section>
+
+      <section class="panel split">
+        <div>
+          <h2>Structure</h2>
+          <pre id="structureOutput"></pre>
+        </div>
+        <div>
+          <h2>Simulation Result</h2>
+          <pre id="simulationOutput">Build an automaton and run a test string.</pre>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
